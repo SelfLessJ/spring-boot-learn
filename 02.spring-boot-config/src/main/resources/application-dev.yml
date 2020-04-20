@@ -1,0 +1,17 @@
+# 开发环境配置文件  application-dev.yml/application-dev.properties
+server:
+  port: 8090
+spring:
+  application:
+    name: spring-boot-config
+
+config:
+  properties:
+    url: jdbc:mysql://127.0.0.1:3306/spring-boot
+    username: root
+    password: root
+
+user:
+  name: chan
+  age: 18
+  sex: 男
