@@ -1,0 +1,48 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: mybatis-druid
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1046
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5   # 初始线程池大小
+      min-idle: 5       # 最小
+      max-active: 100   # 最大连接数
+      filters: config,wall,stat   # 监控
+
+      # WebStatFilter配置
+      web-stat-filter:
+        enabled: true
+        # 添加过滤规则
+        url-pattern: /*
+        # 忽略过滤的格式
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+      # StatViewServlet配置
+      stat-view-servlet:
+        enabled: true
+        # 访问路径为/druid时，跳转到StatViewServlet
+        url-pattern: /druid/*
+        # 是否能够重置数据
+        reset-enable: false
+        # 需要账号密码才能访问控制台
+        login-username: druid
+        login-password: druid123
+        # IP白名单
+        # allow: 127.0.0.1
+        #　IP黑名单（共同存在时，deny优先于allow）
+        # deny: 192.168.1.218
+
+      # 配置StatFilter
+      filter:
+        stat:
+          log-slow-sql: true
+
+mybatis:
+  type-aliases-package: com.chan.mybatis_druid.entities
+  configuration:
+    map-underscore-to-camel-case: true

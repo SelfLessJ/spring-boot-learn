@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: mybatis-xml
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1046
+# mybatis 配置
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/**.xml
+  type-aliases-package: com.chan.mybatis_xml.entities
